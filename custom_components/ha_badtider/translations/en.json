@@ -1,0 +1,16 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Badtider Piteå",
+        "description": "Adds sensors with swim sessions (Simma and Lunchsim) in Öjebyn, Munksund and Hortlax, read from pitea.se."
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect to pitea.se. Check your internet connection."
+    },
+    "abort": {
+      "single_instance_allowed": "Badtider Piteå is already configured."
+    }
+  }
+}

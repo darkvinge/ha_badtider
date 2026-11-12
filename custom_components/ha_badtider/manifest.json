@@ -1,0 +1,12 @@
+{
+    "domain": "ha_badtider",
+    "name": "Badtider Piteå",
+    "codeowners": ["@darkvinge"],
+    "config_flow": true,
+    "documentation": "https://github.com/darkvinge/ha_badtider/blob/main/README.md",
+    "iot_class": "cloud_polling",
+    "issue_tracker": "https://github.com/darkvinge/ha_badtider/issues",
+    "requirements": [],
+    "single_config_entry": true,
+    "version": "0.1.0"
+}

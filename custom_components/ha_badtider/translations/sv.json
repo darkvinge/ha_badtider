@@ -1,0 +1,16 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Badtider Piteå",
+        "description": "Lägger till sensorer med simtider (Simma och Lunchsim) i Öjebyn, Munksund och Hortlax, hämtade från pitea.se."
+      }
+    },
+    "error": {
+      "cannot_connect": "Kunde inte ansluta till pitea.se. Kontrollera din internetanslutning."
+    },
+    "abort": {
+      "single_instance_allowed": "Badtider Piteå är redan konfigurerad."
+    }
+  }
+}

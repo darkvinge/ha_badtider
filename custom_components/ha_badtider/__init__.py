@@ -7,7 +7,7 @@ from homeassistant.helpers.event import async_track_time_change
 
 from .coordinator import BadtiderCoordinator
 
-PLATFORMS = [Platform.SENSOR]
+PLATFORMS = [Platform.CALENDAR, Platform.SENSOR]
 
 type BadtiderConfigEntry = ConfigEntry[BadtiderCoordinator]
 

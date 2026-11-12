@@ -23,6 +23,18 @@ from .coordinator import BadtiderCoordinator, Overview, Pass
 if TYPE_CHECKING:
     from . import BadtiderConfigEntry
 
+def device_info() -> DeviceInfo:
+    """Gemensam enhet för sensorer och kalendrar."""
+    return DeviceInfo(
+        identifiers={(DOMAIN, "pitea_simhallar")},
+        name="Badtider",
+        manufacturer="Piteå kommun",
+        model="Piteå simhallar",
+        entry_type=DeviceEntryType.SERVICE,
+        configuration_url="https://www.pitea.se/invanare/fritid-kultur/pitea-simhallar/",
+    )
+
+
 NO_SWIM = "Ingen simning"
 MAX_STATE = 255
 
@@ -124,14 +136,7 @@ class BadtiderSensor(CoordinatorEntity[BadtiderCoordinator], SensorEntity):
         super().__init__(coordinator)
         self.entity_description = description
         self._attr_unique_id = f"{DOMAIN}_{description.key}"
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, "pitea_simhallar")},
-            name="Badtider",
-            manufacturer="Piteå kommun",
-            model="Piteå simhallar",
-            entry_type=DeviceEntryType.SERVICE,
-            configuration_url="https://www.pitea.se/invanare/fritid-kultur/pitea-simhallar/",
-        )
+        self._attr_device_info = device_info()
 
     @property
     def native_value(self) -> str | datetime | None:

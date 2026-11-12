@@ -10,6 +10,7 @@ pitea.se och visar var och när det går att simma (passtyperna *Simma* och
 * Alla simpass idag, i alla hallar, sorterade på starttid
 * Morgondagens första pass (alla hallar som startar samtidigt)
 * Tidsstämpelsensor för nästa pass, att använda i automationer
+* En kalender per hall, som syns i HA:s kalendervy
 * Status räknas om varje minut. Schemat hämtas från pitea.se var tredje timme,
   och det senast hämtade schemat behålls om sidan inte svarar
 
@@ -27,6 +28,17 @@ pitea.se och visar var och när det går att simma (passtyperna *Simma* och
 | `sensor.badtider_nasta_pass` | Starttid för nästa pass (timestamp) | `hall`, `typ`, `datum`, `start`, `slut`, `notering`, `text` |
 
 Varje pass i listorna har `hall`, `typ` (`Simma`/`Lunchsim`), `datum`, `start`, `slut` och `notering`.
+
+## Kalendrar
+`calendar.badtider_ojebyn`, `calendar.badtider_munksund` och `calendar.badtider_hortlax`
+visar simpassen som händelser, till exempel *Simma Öjebyn* 15:00–20:30. Kalendern är
+`on` medan ett pass pågår, och attributen visar pågående eller nästa pass.
+
+Veckoschemat upprepas fyra veckor framåt och en vecka bakåt från idag. Längre fram
+visas inget, eftersom kommunen kan hinna ändra tiderna.
+
+Ge varje kalender en egen färg under *Kalender* i sidomenyn, via kugghjulet vid
+kalenderns namn.
 
 ## Kort
 Lägg till ett **Markdown**-kort och klistra in följande i kodredigeraren:

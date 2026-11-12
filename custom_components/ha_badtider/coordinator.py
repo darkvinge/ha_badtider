@@ -121,6 +121,19 @@ class BadtiderCoordinator(DataUpdateCoordinator[dict[str, HallSchedule]]):
                 return self.data
             raise UpdateFailed(f"Fel vid hämtning av badtider: {err}") from err
 
+    def now(self) -> datetime:
+        """Klockan i simhallarnas tidszon."""
+        return dt_util.now(self._tz)
+
     def overview(self) -> Overview:
         """Läget just nu."""
-        return build_overview(self.data, dt_util.now(self._tz))
+        return build_overview(self.data, self.now())
+
+    def passes_between(self, first: date, last: date) -> list[Pass]:
+        """Alla pass från och med first till och med last."""
+        result: list[Pass] = []
+        day = first
+        while day <= last:
+            result.extend(passes_on(self.data, day, self._tz))
+            day += timedelta(days=1)
+        return result
